@@ -62,25 +62,20 @@ public class ShoppingCartTest {
         when(p.getTotalPrice()).thenReturn(25000.00);
     }
 
-
     @Test
-    public void testGetTotalPriceWithMock1(){
-        Product p=mock(Product.class);
-        Product p2=mock(Product.class);
+    public void testTest(){
+        SelectedProduct sp1 = mock(SelectedProduct.class);
+        SelectedProduct sp2 = mock(SelectedProduct.class);
 
-        when(p.getTotalPrice()).thenReturn(100.00);
-        when(p2.getTotalPrice()).thenReturn(500.00);
+        when(sp1.getTotalPrice()).thenReturn(200.00);
+        when(sp2.getTotalPrice()).thenReturn(300.00);
 
-        SelectedProduct sp1= new SelectedProduct(p,0);
-        SelectedProduct sp2= new SelectedProduct(p2,0);
-
-        sp1.setAmount(1);
-        sp2.setAmount(1);
-
-        ShoppingCart cart=new ShoppingCart((Arrays.asList(sp1,sp2)));
-        assertThat(cart.getTotalProductPrice(),is(600.00));
-
-
+        ShoppingCart shoppingCart = new ShoppingCart(Arrays.asList(sp1,sp2));
+        assertThat(shoppingCart.getTotalProductPrice(),is(500.0));
     }
+
+
+
+
 
 }

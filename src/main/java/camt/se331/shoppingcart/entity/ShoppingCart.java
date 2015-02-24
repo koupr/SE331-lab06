@@ -13,7 +13,7 @@ public class ShoppingCart {
     public double getTotalProductPrice(){
         double totalPrice=0.0;
         for(int i=0;i<selectedProducts.size();i++){
-            totalPrice+=(selectedProducts.get(i).getAmount()*selectedProducts.get(i).getTotalPrice());
+            totalPrice+=selectedProducts.get(i).getTotalPrice();
         }
         return totalPrice;
     };
