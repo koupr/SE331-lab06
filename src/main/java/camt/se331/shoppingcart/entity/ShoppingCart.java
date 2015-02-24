@@ -9,8 +9,13 @@ import java.util.List;
 public class ShoppingCart {
     List<SelectedProduct> selectedProducts;
     Date purchaseDate;
+
     public double getTotalProductPrice(){
-        return 0.0;
+        double totalPrice=0.0;
+        for(int i=0;i<selectedProducts.size();i++){
+            totalPrice+=(selectedProducts.get(i).getAmount()*selectedProducts.get(i).getTotalPrice());
+        }
+        return totalPrice;
     };
 
     public List<SelectedProduct> getSelectedProducts() {

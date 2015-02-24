@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.test.context.TestContextManager;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -48,5 +49,38 @@ public class ShoppingCartTest {
         );
     }
 
+
+    @Test
+    public void testGetTotalProductPriceUsingMock() {
+        Product p = mock(Product.class);
+        when(p.getTotalPrice()).thenReturn(1000.0);
+        SelectedProduct sp = new SelectedProduct(p,0);
+        assertThat(sp.getTotalPrice(),is(0.0));
+        when(p.getTotalPrice()).thenReturn(2500.00);
+        sp.setProduct(p);
+        sp.setAmount(10);
+        when(p.getTotalPrice()).thenReturn(25000.00);
+    }
+
+
+    @Test
+    public void testGetTotalPriceWithMock1(){
+        Product p=mock(Product.class);
+        Product p2=mock(Product.class);
+
+        when(p.getTotalPrice()).thenReturn(100.00);
+        when(p2.getTotalPrice()).thenReturn(500.00);
+
+        SelectedProduct sp1= new SelectedProduct(p,0);
+        SelectedProduct sp2= new SelectedProduct(p2,0);
+
+        sp1.setAmount(1);
+        sp2.setAmount(1);
+
+        ShoppingCart cart=new ShoppingCart((Arrays.asList(sp1,sp2)));
+        assertThat(cart.getTotalProductPrice(),is(600.00));
+
+
+    }
 
 }
