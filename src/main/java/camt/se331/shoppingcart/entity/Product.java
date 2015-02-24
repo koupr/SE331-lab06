@@ -34,7 +34,7 @@ public class Product implements Comparable{
     }
 
     public Double getTax(){
-        return 0.0;
+        return  getTotalPrice()*VatEntity.getInstance().getVat();
     }
     @Override
     public boolean equals(Object o) {
