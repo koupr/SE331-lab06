@@ -26,8 +26,8 @@ productService.service('totalVatService',function(){
         var output=0.0;
 
         for(var index = 0; index < products.length;index++) {
-            var product = products[index];
-            output += parseFloat(product.vat);
+            var product2 = products[index];
+            output += parseFloat(product2.totalVat);
         }
         return output;
     }

@@ -20,13 +20,16 @@ productMainController.controller('addProductController', ['$scope', '$http', '$l
 
     }]);
 
-productMainController.controller('listProductController', ['$scope', '$http', '$rootScope','productService','$route','totalVatPrice',
-    function ($scope, $http, $rootScope,productService,$route,totalVatService) {// change from totalCalService to totalVarService
+productMainController.controller('listProductController', ['$scope', '$http', '$rootScope','productService','$route','totalCalService','totalVatService',
+    function ($scope, $http, $rootScope,productService,$route,totalCalService,totalVatService) {// change from totalCalService to totalVarService
         //$http.get("/product/").success(function (data) {
         var data = productService.query(function(){
-            //$scope.totalNetPrice= totalCalService.getTotalNetPrice(data);
-            $scope.totalVatPrice= totalVatService.getTotalVat(data);
+            $scope.totalNetPrice= totalCalService.getTotalNetPrice(data);
             $scope.products = data;
+
+            $scope.totalVat= totalVatService.getTotalVat(data);
+            $scope.products = data;
+
         });
 
 

@@ -27,9 +27,10 @@
             <th>#</th>
             <th>name</th>
             <th>description</th>
-            <!--<th>net price</th>-->
-            <th>vat</th>
+            <th>net price</th>
             <th>price</th>
+            <th>vat</th>
+            <th>total vat</th>
             <th>edit</th>
             <th>delete</th>
 
@@ -38,9 +39,11 @@
             <td>{{$index+1}}</td>
             <td>{{product.name}}</td>
             <td>{{product.description}}</td>
-            <!--<td>{{product.netPrice}}</td>-->
-            <td>{{product.vat}}</td>
+            <td>{{product.netPrice}}</td>
             <td>{{product.totalPrice}}</td>
+            <td>{{product.totalVat}}</td>
+            <td>{{product.vat}}</td>
+
             <td><a ng-href="#/editProduct/{{product.id}}"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
             <td><a ng-href="#/listProduct"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="deleteProduct(product.id)"></span></a></td>
         </tr>
@@ -48,11 +51,10 @@
             <th></th>
             <th><strong>Total</strong> </th>
             <th></th>
-            <!--<th>{{totalNetPrice}}</th>-->
+            <th>{{totalNetPrice}}</th>
+            <th></th>
+            <th></th>
             <th>{{totalVat}}</th>
-            <th></th>
-            <th></th>
-            <th></th>
 
         </tr>
     </table>

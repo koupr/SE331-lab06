@@ -15,6 +15,8 @@ public class Product implements Comparable{
     String name;
     String description;
     Double totalPrice;
+    Double vat;
+    Double totalVat;
 
 
     public Long getId() {
@@ -29,8 +31,20 @@ public class Product implements Comparable{
 
     };
 
+    public Double getTotalVat(){
+        return getTotalPrice()*(VatEntity.getInstance().getVat());
+    }
     public Double getNetPrice(){
         return getTotalPrice()*(1-VatEntity.getInstance().getVat());
+    }
+
+    public  Double getVat(){
+        vat=0.7;
+        return vat;
+    }
+
+    public  void setVat(Double vat){
+        this.vat=vat;
     }
 
     public Double getTax(){
