@@ -20,3 +20,15 @@ productService.service('totalCalService',function() {
         return output;
     }
 })
+
+productService.service('totalVatService',function(){
+    this.getTotalVat = function(products){
+        var output=0.0;
+
+        for(var index = 0; index < products.length;index++) {
+            var product = products[index];
+            output += parseFloat(product.vat);
+        }
+        return output;
+    }
+})
