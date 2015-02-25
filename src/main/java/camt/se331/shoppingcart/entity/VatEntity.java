@@ -18,7 +18,7 @@ public class VatEntity {
     }
 
     // This method is used for test only
-    protected void setVat(double vat){
+    public void setVat(double vat){
         this.vat = vat;
     }
 

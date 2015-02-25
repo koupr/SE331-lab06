@@ -4,6 +4,7 @@ import camt.se331.shoppingcart.dao.NewProductDao;
 import camt.se331.shoppingcart.dao.ProductDao;
 import camt.se331.shoppingcart.dao.SimpleProductDao;
 import camt.se331.shoppingcart.entity.Product;
+import camt.se331.shoppingcart.entity.VatEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,10 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     ProductDao productDao=new NewProductDao();
+    public ProductServiceImpl(){
+        VatEntity.getInstance().setVat(0.07);
+    }
+
     @Override
     public List<Product> getProducts() {
         return productDao.getProducts();
