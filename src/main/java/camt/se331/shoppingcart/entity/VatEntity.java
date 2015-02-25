@@ -12,7 +12,7 @@ public class VatEntity {
         }
         return vatEntity;
     }
-    private  double vat;
+    private  double vat=0.07;
     public double getVat(){
         return vat;
     }

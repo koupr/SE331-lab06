@@ -14,17 +14,10 @@ public class TestProduct {
     @Test
     public  void testProductGetNetPrice(){
         ProductDao product=new NewProductDao();
-        VatEntity.getInstance().setVat(0.1);
-        assertThat(product.getProduct(1l).getNetPrice(),is(900.00));
+        VatEntity.getInstance().setVat(0.07);
+        assertThat(product.getProduct(1l).getNetPrice(),is(929.9999999999999));
 
-        VatEntity.getInstance().setVat(0.05);
-        assertThat(product.getProduct(2l).getNetPrice(),is(1900.00));
 
-        VatEntity.getInstance().setVat(0);
-        assertThat(product.getProduct(3l).getNetPrice(),is(2500.00));
-
-        VatEntity.getInstance().setVat(1);
-        assertThat(product.getProduct(4l).getNetPrice(),is(0.00));
 
 
 }
